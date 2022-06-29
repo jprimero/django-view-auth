@@ -3,6 +3,17 @@
 {% block content %}
 <h1>Blog Listing</h1>
 <ul>
+
+{% if messages %}
+<ul class="messages" style="background-color:#ccc">
+  {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+      {{ message }}
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
 {% for blog in blogs %}
   <li><a href="{% url 'view_blog' blog.id %}">{{ blog.title }}</a></li>
 {% endfor %}
