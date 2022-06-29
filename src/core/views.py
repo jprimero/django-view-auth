@@ -51,4 +51,4 @@ def user_info(request):
 
 @login_required
 def private_place(request):
-    return HttpRequest("Shhh, members only!", content_type="text/plain")
+    return HttpResponse("Shhh, members only!", content_type="text/plain")
