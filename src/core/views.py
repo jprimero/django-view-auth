@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from core.models import Blog
 
 
@@ -46,3 +47,8 @@ def user_info(request):
     """
 
     return HttpResponse(text, content_type="text/plain")
+
+
+@login_required
+def private_place(request):
+    return HttpRequest("Shhh, members only!", content_type="text/plain")
